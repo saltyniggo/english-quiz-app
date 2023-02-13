@@ -8,11 +8,12 @@ print('Welcome to my quiz')
 print('GOOD LUCK!')
 print('')
 
-#
+
 def read_questions():
     with open('questions.csv', 'r') as f:
         reader = csv.DictReader(f)
         return list(reader)
+
 
 questions = read_questions()
 score = 0
@@ -34,10 +35,12 @@ for question in questions:
 # ranking system for the user
 if score == len(questions):
     rank = "perfect"
-elif score >= len(questions) * 0.8:
+elif score >= len(questions) * 0.9:
+    rank = "very good"
+elif score >= len(questions) * 0.7:
     rank = "good"
 elif score >= len(questions) * 0.5:
-    rank = "medium"
+    rank = "not the best"
 else:
     rank = "bad"
 
